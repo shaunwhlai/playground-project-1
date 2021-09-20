@@ -15,7 +15,6 @@ class LambdaDemo extends Component {
     fetch("/.netlify/functions/" + api)
       .then(response => response.json())
       .then(json => this.setState({ loading: false, msg: json.msg }))
-      .catch(e => this.setState({loading: false, msg: "Sorry, error loading API" }))
   }
 
 
