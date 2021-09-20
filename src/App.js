@@ -15,18 +15,19 @@ class LambdaDemo extends Component {
     fetch("/.netlify/functions/" + api)
       .then(response => response.json())
       .then(json => this.setState({ loading: false, msg: json.msg }))
+      .catch(e => this.setState({loading: false, msg: "Sorry, error loading API" }))
   }
+
 
   render() {
     const { loading, msg } = this.state
 
     return (
       <p>
-        <button onClick={this.handleClick("hello")}>{loading ? "Loading..." : "Call Lambda"}</button>
+        <button onClick={this.handleClick("hello")}>{loading ? "Loading..." : "Yigo moya?"}</button>
         <button onClick={this.handleClick("async-dadjoke")}>{loading ? "Loading..." : "Call Async Lambda"}</button>
         <br />
         <span>{msg}</span>
-        <span>test</span>
       </p>
     )
   }
@@ -39,7 +40,7 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            Edit <code>src/App.js</code> and save to reload.
+            Annyeong, hyunnie <span role='img'>&#128536;</span>
           </p>
           <LambdaDemo />
         </header>
